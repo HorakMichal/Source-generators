@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/Generators/">
+    <Project Path="Generators/EndpointExample/EndpointExample.csproj" Id="1f8a3b0c-a641-4fd8-ba1e-bf369c5faaf4" />
+    <Project Path="Generators/EndpointExampleTests/EndpointExampleTests.csproj" Id="3fd5b44b-f9d8-4ca1-a319-11445a477f45" />
+    <Project Path="Generators/MinimalApiRegistration/MinimalApiRegistration.csproj" />
+    <Project Path="Generators/MinimalApiRegistrationTests/MinimalApiRegistrationTests.csproj" Id="762ad98c-e68f-4e37-ab6a-10a16bde9f26" />
+  </Folder>
+  <Project Path="Benchmarks/Benchmarks.csproj" Id="51e302e5-83bf-457f-b912-cd380a2caf99" />
+  <Project Path="WebApi/WebApi.csproj" />
+</Solution>
