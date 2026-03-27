@@ -8,6 +8,18 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
 
+	<PropertyGroup>
+		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+		<CompilerGeneratedFilesOutputPath>generated</CompilerGeneratedFilesOutputPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="generated\**" />
+		<Content Remove="generated\**" />
+		<EmbeddedResource Remove="generated\**" />
+		<None Remove="generated\**" />
+	</ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" Version="0.15.8" />
   </ItemGroup>

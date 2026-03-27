@@ -5,6 +5,9 @@
     <Project Path="Generators/MinimalApiRegistration/MinimalApiRegistration.csproj" />
     <Project Path="Generators/MinimalApiRegistrationTests/MinimalApiRegistrationTests.csproj" Id="762ad98c-e68f-4e37-ab6a-10a16bde9f26" />
   </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="../.gitignore" />
+  </Folder>
   <Project Path="Benchmarks/Benchmarks.csproj" Id="51e302e5-83bf-457f-b912-cd380a2caf99" />
   <Project Path="WebApi/WebApi.csproj" />
 </Solution>
