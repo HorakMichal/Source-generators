@@ -21,6 +21,10 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.MapScalarApiReference();
+app.UseSwaggerUI(options =>
+{
+    options.SwaggerEndpoint("/openapi/v1.json", "v1");
+});
 
 // Maps endpoints marked with [Endpoint] attribute using source generator
 app.MapAllEndpoints();

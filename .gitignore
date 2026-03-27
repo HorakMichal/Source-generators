@@ -342,7 +342,8 @@ launchSettings.json
 .claude/settings.local.json
 
 # Exclude generated files 
-/src/*/generated/*
+/src/WebApi/generated/*
+/src/Benchmarks/generated/*
 
 # Ignore ReSharper inspect result
 /ReSharperIssues.*
