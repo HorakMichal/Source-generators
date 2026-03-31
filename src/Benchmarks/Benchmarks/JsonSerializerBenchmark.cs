@@ -29,15 +29,18 @@ public class JsonSerializerBenchmark
 
     // Normal serialization (reflection-based)
     [Benchmark(Baseline = true)]
-    public string Normal() => JsonSerializer.Serialize(_list);
+    public string Normal() 
+        => JsonSerializer.Serialize(_list);
 
     // Source generator serialization (Metadata mode - serialization + deserialization)
     [Benchmark]
-    public string SourceGenMetadata() => JsonSerializer.Serialize(_list, UserResponseMetadataContext.Default.ListUserResponse);
+    public string SourceGenMetadata() 
+        => JsonSerializer.Serialize(_list, UserResponseMetadataContext.Default.ListUserResponse);
 
     // Source generator serialization (Serialization mode - optimized for serialization only)
     [Benchmark]
-    public string SourceGenSerialize() => JsonSerializer.Serialize(_list, UserResponseSerializeContext.Default.ListUserResponse);
+    public string SourceGenSerialize() 
+        => JsonSerializer.Serialize(_list, UserResponseSerializeContext.Default.ListUserResponse);
 }
 
 [JsonSerializable(typeof(List<UserResponse>))]

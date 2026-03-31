@@ -1,5 +1,6 @@
 ﻿using BenchmarkDotNet.Attributes;
 using Bogus;
+using System.Text.RegularExpressions;
 using WebApi.Endpoints.User.CreateUser.Services;
 
 namespace Benchmarks.Benchmarks;
@@ -51,12 +52,27 @@ public class RegexBenchmark
     }
 
     [Benchmark(Baseline = true)]
-    public int ReflectionRegex()
+    public int ReflectionRegexInefficient()
     {
         int validCount = 0;
         foreach (var email in _emails)
         {
             if (ValidationService.CheckEmail(email))
+                validCount++;
+        }
+        return validCount;
+    }
+
+    [Benchmark]
+    public int ReflectionRegex()
+    {
+        int validCount = 0;
+        Regex regex = new(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+        
+        foreach (var email in _emails)
+        {
+            var match = regex.Match(email);
+            if (match.Success)
                 validCount++;
         }
         return validCount;
