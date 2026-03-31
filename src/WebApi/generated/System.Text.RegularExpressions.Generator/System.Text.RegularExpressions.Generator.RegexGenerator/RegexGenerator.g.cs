@@ -27,7 +27,7 @@ namespace WebApi.Endpoints.User.CreateUser.Services
         /// ○ Match if at the end of the string or if before an ending newline.<br/>
         /// </code>
         /// </remarks>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "10.0.14.12010")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "10.0.14.15411")]
         private static partial global::System.Text.RegularExpressions.Regex EmailRegex() => global::System.Text.RegularExpressions.Generated.EmailRegex_0.Instance;
     }
 }
@@ -45,7 +45,7 @@ namespace System.Text.RegularExpressions.Generated
     using System.Threading;
 
     /// <summary>Custom <see cref="Regex"/>-derived type for the EmailRegex method.</summary>
-    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "10.0.14.12010")]
+    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "10.0.14.15411")]
     file sealed class EmailRegex_0 : Regex
     {
         /// <summary>Cached, thread-safe singleton instance.</summary>
@@ -372,7 +372,7 @@ namespace System.Text.RegularExpressions.Generated
     }
     
     /// <summary>Helper methods used by generated <see cref="Regex"/>-derived implementations.</summary>
-    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "10.0.14.12010")]
+    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "10.0.14.15411")]
     file static class Utilities
     {
         /// <summary>Default timeout value set in <see cref="AppContext"/>, or <see cref="Regex.InfiniteMatchTimeout"/> if none was set.</summary>

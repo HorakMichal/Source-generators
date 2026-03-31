@@ -1,13 +1,14 @@
 ﻿using BenchmarkDotNet.Attributes;
 using Bogus;
 using System.Text.RegularExpressions;
-using WebApi.Endpoints.User.CreateUser.Services;
 
 namespace Benchmarks.Benchmarks;
 
 [MemoryDiagnoser]
 public class RegexBenchmark
 {
+    public const string Pattern = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
+
     private string[] _emails = [];
 
     [Params(100, 1000)]
@@ -52,41 +53,36 @@ public class RegexBenchmark
     }
 
     [Benchmark(Baseline = true)]
-    public int ReflectionRegexInefficient()
+    public int ReflectionRegexOutside()
     {
-        int validCount = 0;
-        foreach (var email in _emails)
-        {
-            if (ValidationService.CheckEmail(email))
-                validCount++;
-        }
-        return validCount;
+        return _emails.Count(email => new Regex(Pattern).IsMatch(email));
     }
 
     [Benchmark]
     public int ReflectionRegex()
     {
-        int validCount = 0;
-        Regex regex = new(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-        
-        foreach (var email in _emails)
-        {
-            var match = regex.Match(email);
-            if (match.Success)
-                validCount++;
-        }
-        return validCount;
+        Regex regex = new(Pattern);
+
+        return _emails.Count(regex.IsMatch);
+    }
+
+    [Benchmark]
+    public int SourceGeneratedRegexOutside()
+    {
+        return _emails.Count(email => RegexSourceGenerated.EmailRegex().IsMatch(email));
     }
 
     [Benchmark]
     public int SourceGeneratedRegex()
     {
-        int validCount = 0;
-        foreach (var email in _emails)
-        {
-            if (ValidationService.CheckEmailGenerated(email))
-                validCount++;
-        }
-        return validCount;
+        var regex = RegexSourceGenerated.EmailRegex();
+
+        return _emails.Count(regex.IsMatch);
     }
+}
+
+public static partial class RegexSourceGenerated
+{
+    [GeneratedRegex(RegexBenchmark.Pattern)]
+    public static partial Regex EmailRegex();
 }

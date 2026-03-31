@@ -11,7 +11,7 @@ public sealed class MinimalApiRegistrationTests
             """
             using MinimalApiRegistration;
 
-            namespace WebApi.Endpoints.User.ReadUser;
+            namespace WebApi.Endpoints.User.CreateUser;
 
             [Endpoint]
             public sealed class Endpoint : IEndpoint
